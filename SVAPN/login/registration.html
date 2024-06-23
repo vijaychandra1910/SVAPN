@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submit</title>
+    <link rel="stylesheet" href="regstyle.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        <center>
+            <form method="post" action="" name="product" id="product">
+                <label for="name">Name*</label>
+                <input class="fil" type="text" name="name" placeholder="Enter Your Name" required>
+            
+                <label for="contact">Contact No.*</label>
+                <input class="fil" type="tel" name="contact" placeholder="Enter Your Contact No." required>
+            
+                <label for="address">Address*</label>
+                <input class="fil" type="text" name="address" placeholder="Enter Your Address" required>
+            
+                <label for="aadhar">Aadhar Card</label>
+                <input class="fil" type="number" name="aadhar" placeholder="Enter Your Aadhar Card No." required>
+            
+                <label for="pan">Pan Card</label>
+                <input class="fil" type="text" name="pan" placeholder="Enter Your PAN Card No." required>
+            
+                <label for="field">Working Field*</label>
+                <select class="fil" name="field" required>
+                    <option value="" selected disabled>Select Your Working Field</option>
+                    <option value="Bathroom and Toilet Cleaning">Bathroom and Toilet Cleaning</option>
+                    <option value="Kitchen Cleaning">Kitchen Cleaning</option>
+                    <option value="Floor Cleaning">Floor Cleaning</option>
+                    <option value="Home Cleaning">Home Cleaning</option>
+                    <option value="Vehicle Cleaning">Vehicle Cleaning</option>
+                    <option value="Cooking">Cooking</option>
+                </select>
+            
+                <label for="experience">Experience Year*</label>
+                <input class="fil" type="text" name="experience" placeholder="Enter Your Experience in Years" required>
+            
+                <button class="click">Submit &#10132;</button>
+            </form>
+        </center>
+        <img class="bottom-right-photo" src="logo.jpg" alt="Photo">
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw0fyZ-Wk866_PTBxxFGg2oJzMWir6pfpHFLuUV7XQiokVi9cxnWVkDI06VoMM7_atjxw/exec'
+        const form = document.forms['product']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thank you! your form is submitted successfully." ))
+            .then(() => {  window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+</html>
